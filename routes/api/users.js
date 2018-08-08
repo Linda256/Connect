@@ -20,7 +20,7 @@ const User = require('../../models/User') // can use mongoose methods after load
 // @desc    Tests users route
 // @access  Public
 
-// becouse we use rounter, we don't need to write './routes/api/users/test'
+// because we use rounter, we don't need to write './routes/api/users/test'
 router.get('/test',(req,res) => res.json({msg: "Users works"})); //res.json will automatically send code 200. res.json is same as res.send but send output json.
 
 // @route   GET api/users/register
@@ -70,10 +70,12 @@ router.post('/register', (req,res) =>{
 })
 
 
+/**
+* @route   GET api/users/login
+* @desc    Login User / Returning JWT Token
+* @access  Public
+*/
 
-// @route   GET api/users/login
-// @desc    Tests users route
-// @access  Public
 
 router.post('/login', (req,res) => {
    const { errors, isValid } = validateLoginInput(req.body);

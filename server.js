@@ -10,7 +10,7 @@ const profile = require('./routes/api/profile');
 const app=express();
 
 //Body parser middleware
-app.use(bodyParser.urlencoded({extended: false})); //basically tells the system whether you want to use a simple algorithm for shallow parsing (i.e. false) or complex algorithm for deep parsing that can deal with nested objects (i.e. true).
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //DB config
