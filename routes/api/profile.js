@@ -96,7 +96,7 @@ router.get('/all',(req,res) => {
   .catch(err => res.status(404).json(err));
 });
 
-// @route   GET api/profile
+// @route   POST api/profile
 // @desc    Create/Edit users profile
 // @access  Private
 
@@ -141,7 +141,7 @@ router.post('/', passport.authenticate('jwt',{session:false}),(req,res) => {
             {user: req.user.id},
             {$set: profileFields},
             {new: true}
-          )
+          ).then(profile => res.json(profile));
         } else {
           //Create
           // Check if handle exist
@@ -150,7 +150,7 @@ router.post('/', passport.authenticate('jwt',{session:false}),(req,res) => {
               errors.handle = 'That handle already exists';
               res.status(400).json(errors);
             }
-
+            //Save Profiel
             new Profile(profileFields).save().then(profile => res.json(profile));
           })
         }
