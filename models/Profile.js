@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema({
   user:{
-    type: Schema.Types.ObjectId, // associate user by its ID
-    ref:'users'
+    type: Schema.Types.ObjectId,
+    ref:'users'// associate user by its ID
   },
   handle:{
     type: String,

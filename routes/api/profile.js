@@ -26,7 +26,7 @@ router.get('/', passport.authenticate('jwt',{session:false}),(req,res) => {
 
 
   Profile.findOne({user: req.user.id})  // Profile user refer to User Object id
-  .populate('user',['name','avatar'])
+  .populate('user',['name','email','avatar'])
   .then(profile => {
     console.log(req.user.id);
     if (!profile) {
